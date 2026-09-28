@@ -1,42 +1,30 @@
 var products = [
     {
-        name: "Money RPG",
-        category: "software",
-        description:
-            "Turn saving money into an RPG-style progression system.",
-        price: "Free",
-        image: "assets/products/money-rpg.jpg",
-        url: "#"
-    },
-
-    {
-        name: "Zombie Town",
-        category: "game",
-        description:
-            "A small survival game set in an abandoned town.",
-        price: "$4.99",
-        image: "assets/products/zombie-town.jpg",
-        url: "#"
-    },
-
-    {
-        name: "CSV Analyzer",
+        name: "Forex PLUS",
         category: "tool",
         description:
-            "Quickly explore and visualize CSV datasets.",
-        price: "$2.99",
-        image: "assets/products/csv-analyzer.jpg",
+            "Analyze forex markets and get simple BUY or WAIT signals based on key technical indicators.",
+        price: "$9.99/month",
+        image: "img/forexplus.png",
+        url: "https://forexplus.onrender.com"
+    },
+
+    {
+        name: "Game",
+        category: "game",
+        description:
+            "A simple zombie survival shooter. Survive as long as you can.",
+        price: "N/A",
+        image: "img/game.png",
         url: "#"
     }
 ];
-
 
 var productGrid =
     document.getElementById("productGrid");
 
 var filterButtons =
     document.querySelectorAll(".filter");
-
 
 function displayProducts(category)
 {
@@ -52,13 +40,30 @@ function displayProducts(category)
             var card =
                 document.createElement("article");
 
-            card.className =
-                "product-card";
+            card.className = "product-card";
+
+            // Make whole card clickable
+            card.setAttribute("role", "link");
+            card.setAttribute("tabindex", "0");
+
+            card.addEventListener("click", function()
+            {
+                window.location.href = product.url;
+            });
+
+            // Allow Enter key as well
+            card.addEventListener("keydown", function(event)
+            {
+                if (event.key === "Enter")
+                {
+                    window.location.href = product.url;
+                }
+            });
 
             card.innerHTML = `
                 <div class="product-image">
                     ${
-                        product.image
+                        product.image && product.image !== "#"
                         ? `<img
                             src="${product.image}"
                             alt="${product.name}"
@@ -92,12 +97,9 @@ function displayProducts(category)
                             ${product.price}
                         </span>
 
-                        <a
-                            href="${product.url}"
-                            class="product-link"
-                        >
+                        <span class="product-link">
                             View →
-                        </a>
+                        </span>
 
                     </div>
 
@@ -108,7 +110,6 @@ function displayProducts(category)
         }
     });
 }
-
 
 filterButtons.forEach(function(button)
 {
