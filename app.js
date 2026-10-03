@@ -10,11 +10,11 @@ var products = [
     },
 
     {
-        name: "Game",
+        name: "Zombie Game V1: Prototype",
         category: "game",
         description:
             "A simple zombie survival shooter. Survive as long as you can.",
-        price: "N/A",
+        price: "FREE",
         image: "img/game.png",
         url: "#"
     }
