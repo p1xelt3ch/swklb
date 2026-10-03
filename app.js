@@ -16,7 +16,7 @@ var products = [
             "A simple zombie survival shooter. Survive as long as you can.",
         price: "FREE",
         image: "img/game.png",
-        url: "#"
+        url: "sz2/index.html"
     }
 ];
 
