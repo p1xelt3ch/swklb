@@ -4,7 +4,7 @@ var products = [
         category: "game",
         description:
             "A simple zombie survival shooter. Survive as long as you can.",
-        //price: "FREE",
+        price: "FREE",
         image: "img/game.png",
         url: "sz2/index.html"
     },
