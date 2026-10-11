@@ -6,7 +6,7 @@ var products = [
             "A simple zombie survival shooter. Survive as long as you can.",
         //price: "FREE",
         image: "img/Zombie Game_ Ruined Horizon.png",
-        url: "game.html"
+        url: "zombiegame.html"
     },
 
     {
