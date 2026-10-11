@@ -1,5 +1,15 @@
 var products = [
     {
+        name: "Zombie Game",
+        category: "game",
+        description:
+            "A simple zombie survival shooter. Survive as long as you can.",
+        //price: "FREE",
+        image: "img/game.png",
+        url: "sz2/index.html"
+    },
+
+    {
         name: "CueFluence",
         category: "tool",
         description:
@@ -7,16 +17,6 @@ var products = [
         price: "$9.99/month",
         image: "img/cuefluence.png",
         url: "https://cuefluence.swooklabs.com/"
-    },
-
-    {
-        name: "Zombie Game V1: Prototype",
-        category: "game",
-        description:
-            "A simple zombie survival shooter. Survive as long as you can.",
-        price: "FREE",
-        image: "img/game.png",
-        url: "sz2/index.html"
     }
 ];
 
