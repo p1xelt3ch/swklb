@@ -10,7 +10,7 @@
         "PAYPAL_ENV": "sandbox",
 
         "PAID_GAME_OBJECT_KEY":
-            "REPLACE_WITH_EXACT_PAID_R2_OBJECT_NAME.exe",
+            "https://pub-eeb5913fe1d642278a9832cd0f5e32fe.r2.dev/Zombie%20Game%20Setup%201.0.0.exe",
 
         "PAID_GAME_DOWNLOAD_NAME":
             "Zombie-Game-Full-Setup.exe"
