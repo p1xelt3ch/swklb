@@ -24,7 +24,7 @@
 
     <link
         rel="canonical"
-        href="https://swooklabs.com/game.html"
+        href="https://swooklabs.com/zombiegame.html"
     >
 
 
@@ -46,7 +46,7 @@
 
     <meta
         property="og:url"
-        content="https://swooklabs.com/game.html"
+        content="https://swooklabs.com/zombiegame.html"
     >
 
     <meta
@@ -321,12 +321,25 @@
         <li>Future updates</li>
     </ul>
 
-    <a
-        href="#"
-        class="btn btn-primary version-button"
-    >
-        Buy Full Version
-    </a>
+    <div class="paypal-checkout">
+
+    <p class="paypal-checkout-label">
+        Secure checkout with PayPal
+    </p>
+
+    <div
+        id="paypal-button-container"
+        class="paypal-button-container"
+    ></div>
+
+    <p
+        id="payment-status"
+        class="payment-status"
+        role="status"
+        aria-live="polite"
+    ></p>
+
+</div>
 
 </div>
 
@@ -348,7 +361,7 @@
         </p>
 
     </footer>
-
+<script src="paypal-checkout.js" defer></script>
 </body>
 
 </html>
