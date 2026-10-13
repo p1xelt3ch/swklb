@@ -1,1 +1,28 @@
+{
+    "name": "swooklabs-payments",
 
+    "main": "payments-worker.js",
+
+    "compatibility_date": "2026-10-13",
+
+    "vars": {
+
+        "PAYPAL_ENV": "sandbox",
+
+        "PAID_GAME_OBJECT_KEY":
+            "REPLACE_WITH_EXACT_PAID_R2_OBJECT_NAME.exe",
+
+        "PAID_GAME_DOWNLOAD_NAME":
+            "Zombie-Game-Full-Setup.exe"
+    },
+
+    "r2_buckets": [
+        {
+            "binding":
+                "PAID_GAME_BUCKET",
+
+            "bucket_name":
+                "swooklabs-paid"
+        }
+    ]
+}
