@@ -526,7 +526,8 @@ buyButton.addEventListener(
     !data.ok ||
     !data.approvalUrl ||
     !data.orderID ||
-    !data.checkoutSecret
+    !data.checkoutSecret ||
+    !data.recoverySecret
 )
 {
     throw new Error(
@@ -546,6 +547,22 @@ sessionStorage.setItem(
     data.checkoutSecret
 );
 
+localStorage.setItem(
+    "zombieGameRecoveryOrderID",
+    data.orderID
+);
+
+localStorage.setItem(
+    "zombieGameRecoverySecret",
+    data.recoverySecret
+);
+
+localStorage.setItem(
+    "zombieGameRecoveryCreatedAt",
+    String(
+        Date.now()
+    )
+);
 
 window.location.href =
     data.approvalUrl;
