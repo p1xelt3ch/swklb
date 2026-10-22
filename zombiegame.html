@@ -522,20 +522,34 @@ buyButton.addEventListener(
 
 
             if (
-                !response.ok ||
-                !data.ok ||
-                !data.approvalUrl
-            )
-            {
-                throw new Error(
-                    data.error ||
-                    "Could not start PayPal checkout."
-                );
-            }
+    !response.ok ||
+    !data.ok ||
+    !data.approvalUrl ||
+    !data.orderID ||
+    !data.checkoutSecret
+)
+{
+    throw new Error(
+        data.error ||
+        "Could not start PayPal checkout."
+    );
+}
 
 
-            window.location.href =
-                data.approvalUrl;
+sessionStorage.setItem(
+    "zombieGameCheckoutOrderID",
+    data.orderID
+);
+
+sessionStorage.setItem(
+    "zombieGameCheckoutSecret",
+    data.checkoutSecret
+);
+
+
+window.location.href =
+    data.approvalUrl;
+            
         }
         catch (error)
         {
@@ -583,6 +597,15 @@ async function handlePayPalReturn()
         );
 
 
+    const checkoutSecret =
+    sessionStorage.getItem(
+        "zombieGameCheckoutSecret"
+    );
+
+const storedOrderID =
+    sessionStorage.getItem(
+        "zombieGameCheckoutOrderID"
+    );
     // Customer cancelled checkout
 
     if (
@@ -601,13 +624,27 @@ async function handlePayPalReturn()
     // Nothing to process
 
     if (
-        paypalStatus !==
-            "approved" ||
-        !orderID
-    )
-    {
-        return;
-    }
+    paypalStatus !==
+        "approved" ||
+    !orderID
+)
+{
+    return;
+}
+
+
+if (
+    !checkoutSecret ||
+    !storedOrderID ||
+    storedOrderID !== orderID
+)
+{
+    showStatus(
+        "This checkout session could not be verified. Please start the purchase again."
+    );
+
+    return;
+}
 
 
     try
@@ -639,12 +676,15 @@ async function handlePayPalReturn()
                     },
 
                     body:
-                        JSON.stringify(
-                            {
-                                orderID:
-                                    orderID
-                            }
-                        )
+    JSON.stringify(
+        {
+            orderID:
+                orderID,
+
+            checkoutSecret:
+                checkoutSecret
+        }
+    )
                 }
             );
 
@@ -680,6 +720,13 @@ async function handlePayPalReturn()
             "Payment complete! Your Zombie Game download is ready."
         );
 
+        sessionStorage.removeItem(
+    "zombieGameCheckoutOrderID"
+);
+
+sessionStorage.removeItem(
+    "zombieGameCheckoutSecret"
+);
 
         // ------------------------------------------
         // DOWNLOAD BUTTON
