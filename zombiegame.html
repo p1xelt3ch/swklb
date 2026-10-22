@@ -383,11 +383,35 @@
     </ul>
 
     <a
-        href="https://www.paypal.com/ncp/payment/XMCX2XEYWV4CS"
-        class="btn btn-primary version-button"
-    >
-        Buy Full Version
-    </a>
+    href="#"
+    id="buy-full-version"
+    class="btn btn-primary version-button"
+>
+    Buy Full Version
+</a>
+
+<p
+    id="purchase-status"
+    style="margin-top: 15px; display: none;"
+></p>
+
+<a
+    href="#"
+    id="download-full-version"
+    class="btn btn-secondary version-button"
+    style="display: none; margin-top: 10px;"
+>
+    Download Full Game
+</a>
+
+<a
+    href="#"
+    id="activate-full-version"
+    class="btn btn-primary version-button"
+    style="display: none; margin-top: 10px;"
+>
+    Activate & Launch Game
+</a>
 
 </div>
 
@@ -409,7 +433,343 @@
         </p>
 
     </footer>
+<script>
+const WORKER_URL =
+    "https://zombie-game-updates.swhong312.workers.dev";
 
+
+const buyButton =
+    document.getElementById(
+        "buy-full-version"
+    );
+
+const purchaseStatus =
+    document.getElementById(
+        "purchase-status"
+    );
+
+const downloadButton =
+    document.getElementById(
+        "download-full-version"
+    );
+
+const activateButton =
+    document.getElementById(
+        "activate-full-version"
+    );
+
+
+function showStatus(
+    message
+)
+{
+    purchaseStatus.textContent =
+        message;
+
+    purchaseStatus.style.display =
+        "block";
+}
+
+
+// ==================================================
+// START PAYPAL CHECKOUT
+// ==================================================
+
+buyButton.addEventListener(
+    "click",
+
+    async function(event)
+    {
+        event.preventDefault();
+
+
+        try
+        {
+            buyButton.textContent =
+                "Opening PayPal...";
+
+            buyButton.style.pointerEvents =
+                "none";
+
+
+            showStatus(
+                "Creating secure PayPal checkout..."
+            );
+
+
+            const response =
+                await fetch(
+                    WORKER_URL +
+                    "/paypal/create-order",
+                    {
+                        method:
+                            "POST",
+
+                        headers:
+                        {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({})
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                !response.ok ||
+                !data.ok ||
+                !data.approvalUrl
+            )
+            {
+                throw new Error(
+                    data.error ||
+                    "Could not start PayPal checkout."
+                );
+            }
+
+
+            window.location.href =
+                data.approvalUrl;
+        }
+        catch (error)
+        {
+            console.error(
+                error
+            );
+
+
+            showStatus(
+                "PayPal checkout could not be started. Please try again."
+            );
+
+
+            buyButton.textContent =
+                "Buy Full Version";
+
+            buyButton.style.pointerEvents =
+                "auto";
+        }
+    }
+);
+
+
+// ==================================================
+// HANDLE RETURN FROM PAYPAL
+// ==================================================
+
+async function handlePayPalReturn()
+{
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const paypalStatus =
+        params.get(
+            "paypal"
+        );
+
+
+    const orderID =
+        params.get(
+            "token"
+        );
+
+
+    // Customer cancelled checkout
+
+    if (
+        paypalStatus ===
+        "cancelled"
+    )
+    {
+        showStatus(
+            "Payment cancelled. You have not been charged."
+        );
+
+        return;
+    }
+
+
+    // Nothing to process
+
+    if (
+        paypalStatus !==
+            "approved" ||
+        !orderID
+    )
+    {
+        return;
+    }
+
+
+    try
+    {
+        buyButton.textContent =
+            "Completing Purchase...";
+
+        buyButton.style.pointerEvents =
+            "none";
+
+
+        showStatus(
+            "Payment approved. Completing your purchase..."
+        );
+
+
+        const response =
+            await fetch(
+                WORKER_URL +
+                "/paypal/capture-order",
+                {
+                    method:
+                        "POST",
+
+                    headers:
+                    {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            {
+                                orderID:
+                                    orderID
+                            }
+                        )
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !response.ok ||
+            !data.ok
+        )
+        {
+            throw new Error(
+                data.error ||
+                "Could not complete purchase."
+            );
+        }
+
+
+        if (
+            !data.downloadUrl ||
+            !data.purchaseToken
+        )
+        {
+            throw new Error(
+                "Purchase completed but download information is missing."
+            );
+        }
+
+
+        showStatus(
+            "Payment complete! Your Zombie Game download is ready."
+        );
+
+
+        // ------------------------------------------
+        // DOWNLOAD BUTTON
+        // ------------------------------------------
+
+        downloadButton.href =
+            data.downloadUrl;
+
+        downloadButton.style.display =
+            "inline-block";
+
+
+        // ------------------------------------------
+        // ACTIVATION BUTTON
+        // ------------------------------------------
+
+        activateButton.style.display =
+            "inline-block";
+
+
+        activateButton.addEventListener(
+            "click",
+
+            function(event)
+            {
+                event.preventDefault();
+
+
+                window.location.href =
+                    "zombiegame://activate?token=" +
+                    encodeURIComponent(
+                        data.purchaseToken
+                    );
+            }
+        );
+
+
+        // ------------------------------------------
+        // AUTOMATICALLY START INSTALLER DOWNLOAD
+        // ------------------------------------------
+
+        const automaticDownload =
+            document.createElement(
+                "a"
+            );
+
+        automaticDownload.href =
+            data.downloadUrl;
+
+        automaticDownload.style.display =
+            "none";
+
+
+        document.body.appendChild(
+            automaticDownload
+        );
+
+
+        automaticDownload.click();
+
+
+        automaticDownload.remove();
+
+
+        buyButton.textContent =
+            "Purchased";
+    }
+    catch (error)
+    {
+        console.error(
+            error
+        );
+
+
+        showStatus(
+            "We could not finish processing your purchase. Please try again."
+        );
+
+
+        buyButton.textContent =
+            "Try Again";
+
+        buyButton.style.pointerEvents =
+            "auto";
+    }
+}
+
+
+handlePayPalReturn();
+</script>
 </body>
 
 </html>
