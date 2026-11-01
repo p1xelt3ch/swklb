@@ -21,7 +21,7 @@
 
     <meta
         name="description"
-        content="CueFluence is a forex technical analysis dashboard that combines EMA 20, EMA 50, EMA 200, Average Daily Range and market-session context into simple BUY or WAIT decision-support signals."
+        content="CueFluence is a forex technical analysis dashboard that combines EMA 20, EMA 50, EMA 200, Average Daily Range and market-session context into simple BUY, WAIT or SELL decision-support signals."
     >
 
     <meta
@@ -107,24 +107,28 @@
         "url": "https://swooklabs.com/cuefluence.html",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
-        "description": "CueFluence is a forex technical analysis and decision-support dashboard that combines EMA 20, EMA 50, EMA 200, Average Daily Range and market-session context into simplified BUY or WAIT signals.",
+        "description": "CueFluence is a forex technical analysis and decision-support dashboard that combines EMA 20, EMA 50, EMA 200, Average Daily Range and market-session context into simplified BUY, WAIT or SELL signals.",
         "image": "https://swooklabs.com/img/cuefluence.png",
+
         "creator": {
             "@type": "Organization",
             "name": "Swook Labs",
             "url": "https://swooklabs.com/"
         },
+
         "publisher": {
             "@type": "Organization",
             "name": "Swook Labs",
             "url": "https://swooklabs.com/"
         },
+
         "offers": {
             "@type": "Offer",
             "price": "9.99",
             "priceCurrency": "USD",
             "url": "https://cuefluence.swooklabs.com/"
         },
+
         "featureList": [
             "Forex technical analysis dashboard",
             "EMA 20 analysis",
@@ -133,7 +137,7 @@
             "Average Daily Range analysis",
             "Forex market-session context",
             "Technical indicator confluence",
-            "BUY and WAIT decision-support signals"
+            "BUY, WAIT and SELL decision-support signals"
         ]
     }
     </script>
@@ -367,6 +371,97 @@
         }
 
 
+        /* ==================================================
+           SCREENSHOT GALLERY
+        ================================================== */
+
+        .cuefluence-screenshot-grid
+        {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(280px, 1fr)
+                );
+
+            gap: 24px;
+
+            margin-top: 40px;
+
+            text-align: left;
+        }
+
+
+        .cuefluence-screenshot
+        {
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 14px;
+
+            background:
+                rgba(255, 255, 255, 0.025);
+        }
+
+
+        .cuefluence-screenshot a
+        {
+            display: block;
+        }
+
+
+        .cuefluence-screenshot img
+        {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            transition:
+                transform
+                0.25s ease;
+        }
+
+
+        .cuefluence-screenshot:hover img
+        {
+            transform: scale(1.015);
+        }
+
+
+        .cuefluence-screenshot-content
+        {
+            padding: 22px;
+        }
+
+
+        .cuefluence-screenshot-content h3
+        {
+            margin:
+                0
+                0
+                8px;
+        }
+
+
+        .cuefluence-screenshot-content p
+        {
+            margin: 0;
+
+            color: #aeb6c5;
+
+            line-height: 1.6;
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
         @media
         (
             max-width: 700px
@@ -384,6 +479,12 @@
             .cuefluence-card
             {
                 padding: 22px;
+            }
+
+
+            .cuefluence-screenshot-grid
+            {
+                grid-template-columns: 1fr;
             }
 
         }
@@ -484,7 +585,8 @@
                     CueFluence combines multiple forex
                     technical indicators into one dashboard
                     to help you understand whether current
-                    market conditions favour buying or waiting.
+                    market conditions show bullish, bearish
+                    or neutral technical alignment.
 
                 </p>
 
@@ -559,190 +661,226 @@
 
         </section>
 
-<!-- ==================================================
-     CUEFLUENCE DEMO
-================================================== -->
-
-<section class="cuefluence-section cuefluence-section-center">
-
-    <p class="eyebrow">
-        CUEFLUENCE DEMO
-    </p>
-
-    <h2>
-        See CueFluence in action.
-    </h2>
-
-    <p>
-        Watch a quick demonstration of the CueFluence
-        forex technical analysis dashboard and see how
-        multiple indicators are brought together into
-        one simplified view.
-    </p>
-
-    <div class="gameplay-video-main">
-
-        <iframe
-            src="https://www.youtube-nocookie.com/embed/Rsr-Mx9tWvA"
-            title="CueFluence Forex Technical Analysis Dashboard Demo"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-        ></iframe>
-
-    </div>
-    <p style="margin-top: 20px;">
-
-    <a
-        href="YOUR_FULL_YOUTUBE_URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-secondary"
-    >
-        Watch Demo on YouTube
-    </a>
-
-</p>
-
-</section>
-
-<!-- ==================================================
-     CUEFLUENCE SCREENSHOTS
-================================================== -->
-
-<section class="cuefluence-section cuefluence-section-center">
-
-    <p class="eyebrow">
-        CUEFLUENCE DASHBOARD
-    </p>
-
-    <h2>
-        See how CueFluence presents market conditions.
-    </h2>
-
-    <p>
-        CueFluence combines forex price data, EMA analysis,
-        Average Daily Range, market-session levels and
-        indicator confluence into a single dashboard.
-    </p>
 
 
-    <div class="cuefluence-screenshot-grid">
+        <!-- ==================================================
+             YOUTUBE DEMO
+        ================================================== -->
+
+        <section
+            class="cuefluence-section cuefluence-section-center"
+        >
 
 
-        <!-- WAIT -->
+            <p class="eyebrow">
+                CUEFLUENCE DEMO
+            </p>
 
-        <article class="cuefluence-screenshot">
 
-            <a
-                href="img/cuefluence-wait-signal.png"
-                target="_blank"
-                rel="noopener"
-            >
+            <h2>
+                See CueFluence in action.
+            </h2>
 
-                <img
-                    src="img/cuefluence-wait-signal.png"
-                    alt="CueFluence forex technical analysis dashboard displaying a WAIT signal with EMA 20, EMA 50, EMA 200, ADR and market-session levels"
+
+            <p>
+
+                Watch a demonstration of the CueFluence
+                forex technical analysis dashboard and see
+                how market data, EMA analysis, ADR and
+                technical signals are brought together into
+                one simplified interface.
+
+            </p>
+
+
+            <div class="gameplay-video-main">
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/Rsr-Mx9tWvA"
+                    title="CueFluence Forex Technical Analysis Dashboard Demo"
                     loading="lazy"
-                >
-
-            </a>
-
-
-            <div class="cuefluence-screenshot-content">
-
-                <h3>
-                    WAIT
-                </h3>
-
-                <p>
-                    CueFluence displays WAIT when the analyzed
-                    technical conditions do not yet show enough
-                    alignment for a BUY or SELL setup.
-                </p>
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                ></iframe>
 
             </div>
 
-        </article>
 
+            <p style="margin-top: 20px;">
 
-
-        <!-- BUY -->
-
-        <article class="cuefluence-screenshot">
-
-            <a
-                href="img/cuefluence-buy-signal.png"
-                target="_blank"
-                rel="noopener"
-            >
-
-                <img
-                    src="img/cuefluence-buy-signal.png"
-                    alt="CueFluence forex technical analysis dashboard displaying a BUY signal with bullish EMA structure"
-                    loading="lazy"
+                <a
+                    href="https://www.youtube.com/watch?v=Rsr-Mx9tWvA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
                 >
+                    Watch Demo on YouTube
+                </a>
 
-            </a>
+            </p>
 
 
-            <div class="cuefluence-screenshot-content">
+        </section>
 
-                <h3>
-                    BUY
-                </h3>
 
-                <p>
-                    A BUY state indicates stronger bullish
-                    alignment among the technical conditions
-                    currently evaluated by CueFluence.
-                </p>
+
+        <!-- ==================================================
+             DASHBOARD SCREENSHOTS
+        ================================================== -->
+
+        <section
+            class="cuefluence-section cuefluence-section-center"
+        >
+
+
+            <p class="eyebrow">
+                CUEFLUENCE DASHBOARD
+            </p>
+
+
+            <h2>
+                See how CueFluence presents market conditions.
+            </h2>
+
+
+            <p>
+
+                CueFluence combines forex price data,
+                EMA analysis, Average Daily Range,
+                market-session levels and indicator
+                confluence into a single dashboard.
+
+            </p>
+
+
+            <div class="cuefluence-screenshot-grid">
+
+
+                <!-- WAIT SCREENSHOT -->
+
+                <article class="cuefluence-screenshot">
+
+                    <a
+                        href="img/cuefluence-wait-signal.png"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <img
+                            src="img/cuefluence-wait-signal.png"
+                            alt="CueFluence forex technical analysis dashboard displaying a WAIT signal with EMA 20, EMA 50, EMA 200, ADR and market-session levels"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+
+                    <div class="cuefluence-screenshot-content">
+
+                        <h3>
+                            WAIT
+                        </h3>
+
+                        <p>
+
+                            CueFluence displays WAIT when the
+                            analyzed technical conditions do not
+                            show enough bullish or bearish alignment
+                            for a BUY or SELL setup.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- BUY SCREENSHOT -->
+
+                <article class="cuefluence-screenshot">
+
+                    <a
+                        href="img/cuefluence-buy-signal.png"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <img
+                            src="img/cuefluence-buy-signal.png"
+                            alt="CueFluence forex technical analysis dashboard displaying a BUY signal with bullish EMA structure"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+
+                    <div class="cuefluence-screenshot-content">
+
+                        <h3>
+                            BUY
+                        </h3>
+
+                        <p>
+
+                            A BUY state indicates stronger
+                            bullish alignment among the
+                            technical conditions currently
+                            evaluated by CueFluence.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- SELL SCREENSHOT -->
+
+                <article class="cuefluence-screenshot">
+
+                    <a
+                        href="img/cuefluence-sell-signal.png"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <img
+                            src="img/cuefluence-sell-signal.png"
+                            alt="CueFluence forex technical analysis dashboard displaying a SELL signal with bearish EMA structure"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+
+                    <div class="cuefluence-screenshot-content">
+
+                        <h3>
+                            SELL
+                        </h3>
+
+                        <p>
+
+                            A SELL state indicates stronger
+                            bearish alignment among the
+                            technical conditions currently
+                            evaluated by CueFluence.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
 
             </div>
 
-        </article>
+
+        </section>
 
 
-
-        <!-- SELL -->
-
-        <article class="cuefluence-screenshot">
-
-            <a
-                href="img/cuefluence-sell-signal.png"
-                target="_blank"
-                rel="noopener"
-            >
-
-                <img
-                    src="img/cuefluence-sell-signal.png"
-                    alt="CueFluence forex technical analysis dashboard displaying a SELL signal with bearish EMA structure"
-                    loading="lazy"
-                >
-
-            </a>
-
-
-            <div class="cuefluence-screenshot-content">
-
-                <h3>
-                    SELL
-                </h3>
-
-                <p>
-                    A SELL state indicates stronger bearish
-                    alignment among the technical conditions
-                    currently evaluated by CueFluence.
-                </p>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
 
         <!-- ==================================================
              CORE FEATURES
@@ -766,8 +904,8 @@
 
             <p>
 
-                CueFluence brings several commonly used forms of
-                forex technical analysis into one dashboard.
+                CueFluence brings several commonly used forms
+                of forex technical analysis into one dashboard.
 
             </p>
 
@@ -796,14 +934,14 @@
                 <article class="cuefluence-card">
 
                     <h3>
-                        BUY or WAIT
+                        BUY, WAIT or SELL
                     </h3>
 
                     <p>
 
                         CueFluence summarizes current technical
-                        conditions into straightforward BUY or WAIT
-                        decision-support signals.
+                        conditions into straightforward BUY,
+                        WAIT or SELL decision-support signals.
 
                     </p>
 
@@ -855,8 +993,8 @@
             <p>
 
                 CueFluence uses several technical-analysis
-                measurements to help build a broader view of
-                current forex market conditions.
+                measurements to help build a broader view
+                of current forex market conditions.
 
             </p>
 
@@ -926,9 +1064,9 @@
 
                     <p>
 
-                        ADR provides context around how far a
-                        currency pair typically moves during a
-                        trading day.
+                        ADR provides context around how far
+                        a currency pair typically moves during
+                        a trading day.
 
                     </p>
 
@@ -979,7 +1117,7 @@
 
 
         <!-- ==================================================
-             WHAT IS INDICATOR CONFLUENCE?
+             INDICATOR CONFLUENCE
         ================================================== -->
 
         <section class="cuefluence-section">
@@ -997,19 +1135,20 @@
 
             <p>
 
-                Indicator confluence describes a situation where
-                several different forms of technical analysis point
-                toward a similar market interpretation.
+                Indicator confluence describes a situation
+                where several different forms of technical
+                analysis point toward a similar market
+                interpretation.
 
             </p>
 
 
             <p>
 
-                Instead of making a decision because one indicator
-                produces a particular result, a trader may look for
-                several technical conditions that support the same
-                general view.
+                Instead of making a decision because one
+                indicator produces a particular result,
+                a trader may look for several technical
+                conditions that support the same general view.
 
             </p>
 
@@ -1018,10 +1157,10 @@
 
                 CueFluence is built around this idea.
 
-                It brings several technical measurements together
-                so that you can evaluate the broader setup from one
-                dashboard rather than checking each indicator
-                independently.
+                It brings several technical measurements
+                together so that you can evaluate the broader
+                setup from one dashboard rather than checking
+                each indicator independently.
 
             </p>
 
@@ -1085,8 +1224,9 @@
 
                     <p>
 
-                        CueFluence processes forex market information
-                        and calculates multiple technical indicators.
+                        CueFluence processes forex market
+                        information and calculates multiple
+                        technical indicators.
 
                     </p>
 
@@ -1106,9 +1246,9 @@
 
                     <p>
 
-                        The indicators are viewed together to help
-                        determine whether multiple technical
-                        conditions are aligning.
+                        The indicators are viewed together
+                        to help determine whether multiple
+                        technical conditions are aligning.
 
                     </p>
 
@@ -1128,9 +1268,10 @@
 
                     <p>
 
-                        CueFluence presents the result in a simplified
-                        format that you can use alongside your own
-                        analysis and trading strategy.
+                        CueFluence presents the result in
+                        a simplified format that you can use
+                        alongside your own analysis and
+                        trading strategy.
 
                     </p>
 
@@ -1145,7 +1286,7 @@
 
 
         <!-- ==================================================
-             BUY / WAIT / SELL EXPLANATION
+             BUY / WAIT / SELL
         ================================================== -->
 
         <section class="cuefluence-section">
@@ -1172,10 +1313,9 @@
 
                     <p>
 
-                        A BUY signal means the technical conditions
-                        currently analyzed by CueFluence are showing
-                        stronger alignment toward a potential buying
-                        setup.
+                        A BUY signal indicates stronger bullish
+                        alignment among the technical conditions
+                        currently analyzed by CueFluence.
 
                     </p>
 
@@ -1191,9 +1331,27 @@
 
                     <p>
 
-                        A WAIT signal means the current technical
-                        setup does not show enough alignment for
-                        CueFluence to present a BUY condition.
+                        A WAIT signal indicates that the current
+                        technical setup does not show sufficient
+                        bullish or bearish alignment.
+
+                    </p>
+
+                </article>
+
+
+
+                <article class="cuefluence-card">
+
+                    <h3>
+                        SELL
+                    </h3>
+
+                    <p>
+
+                        A SELL signal indicates stronger bearish
+                        alignment among the technical conditions
+                        currently analyzed by CueFluence.
 
                     </p>
 
@@ -1246,29 +1404,30 @@
 
             <p>
 
-                CueFluence is not a forex broker and does not
-                execute trades on your behalf.
+                CueFluence is not a forex broker and does
+                not execute trades on your behalf.
 
             </p>
 
 
             <p>
 
-                The application is designed to provide technical
-                market analysis and decision-support information.
+                The application is designed to provide
+                technical market analysis and decision-support
+                information.
 
-                If you decide to enter a trade, that trade is placed
-                separately through your own broker or trading
-                platform.
+                If you decide to enter a trade, that trade
+                is placed separately through your own broker
+                or trading platform.
 
             </p>
 
 
             <p>
 
-                This allows CueFluence to stay focused on its main
-                purpose: helping make technical market information
-                easier to read.
+                This allows CueFluence to stay focused on
+                its main purpose: helping make technical
+                market information easier to read.
 
             </p>
 
@@ -1305,9 +1464,9 @@
 
                     <p>
 
-                        Useful if your forex analysis already involves
-                        checking several technical indicators before
-                        making a decision.
+                        Useful if your forex analysis already
+                        involves checking several technical
+                        indicators before making a decision.
 
                     </p>
 
@@ -1323,8 +1482,9 @@
 
                     <p>
 
-                        Helps present multiple pieces of technical
-                        information in a more understandable format.
+                        Helps present multiple pieces of
+                        technical information in a more
+                        understandable format.
 
                     </p>
 
@@ -1340,9 +1500,9 @@
 
                     <p>
 
-                        Designed for users who want to reduce the
-                        amount of time spent switching between
-                        separate indicators and charts.
+                        Designed for users who want to reduce
+                        the amount of time spent switching
+                        between separate indicators and charts.
 
                     </p>
 
@@ -1357,7 +1517,7 @@
 
 
         <!-- ==================================================
-             PRICING / CTA
+             PRICING
         ================================================== -->
 
         <section
@@ -1492,21 +1652,18 @@
 
                 <div class="cuefluence-faq-item">
 
-
                     <h3>
                         What is CueFluence?
                     </h3>
-
 
                     <p>
 
                         CueFluence is a web-based forex technical
                         analysis dashboard that brings multiple
-                        technical indicators together into a simplified
-                        decision-support interface.
+                        technical indicators together into a
+                        simplified decision-support interface.
 
                     </p>
-
 
                 </div>
 
@@ -1514,11 +1671,9 @@
 
                 <div class="cuefluence-faq-item">
 
-
                     <h3>
                         What indicators does CueFluence use?
                     </h3>
-
 
                     <p>
 
@@ -1528,18 +1683,15 @@
 
                     </p>
 
-
                 </div>
 
 
 
                 <div class="cuefluence-faq-item">
 
-
                     <h3>
                         What is forex indicator confluence?
                     </h3>
-
 
                     <p>
 
@@ -1550,18 +1702,15 @@
 
                     </p>
 
-
                 </div>
 
 
 
                 <div class="cuefluence-faq-item">
 
-
                     <h3>
                         Does CueFluence automatically trade forex?
                     </h3>
-
 
                     <p>
 
@@ -1575,48 +1724,42 @@
 
                     </p>
 
-
                 </div>
 
 
 
                 <div class="cuefluence-faq-item">
-
 
                     <h3>
                         What does a BUY signal mean?
                     </h3>
 
-
                     <p>
 
                         A BUY signal means the technical conditions
-                        analyzed by CueFluence currently show stronger
-                        alignment toward a potential buying setup.
+                        analyzed by CueFluence currently show
+                        stronger bullish alignment.
 
                     </p>
-
 
                 </div>
 
 
 
                 <div class="cuefluence-faq-item">
-
 
                     <h3>
                         What does WAIT mean?
                     </h3>
 
-
                     <p>
 
-                        WAIT means the technical conditions currently
-                        analyzed by CueFluence do not show enough
-                        alignment for a BUY condition.
+                        WAIT means the technical conditions
+                        currently analyzed by CueFluence do not
+                        show enough bullish or bearish alignment
+                        for a BUY or SELL condition.
 
                     </p>
-
 
                 </div>
 
@@ -1624,24 +1767,40 @@
 
                 <div class="cuefluence-faq-item">
 
+                    <h3>
+                        What does a SELL signal mean?
+                    </h3>
+
+                    <p>
+
+                        A SELL signal means the technical conditions
+                        analyzed by CueFluence currently show
+                        stronger bearish alignment.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="cuefluence-faq-item">
 
                     <h3>
                         Is CueFluence financial advice?
                     </h3>
 
-
                     <p>
 
                         No.
 
-                        CueFluence provides technical market analysis
-                        and decision-support information.
+                        CueFluence provides technical market
+                        analysis and decision-support information.
 
                         It does not provide personalized financial
-                        advice and does not guarantee trading results.
+                        advice and does not guarantee trading
+                        results.
 
                     </p>
-
 
                 </div>
 
@@ -1649,22 +1808,19 @@
 
                 <div class="cuefluence-faq-item">
 
-
                     <h3>
                         Do I need to download CueFluence?
                     </h3>
-
 
                     <p>
 
                         No.
 
-                        CueFluence is a web application and can be
-                        accessed directly through a supported
+                        CueFluence is a web application and can
+                        be accessed directly through a supported
                         web browser.
 
                     </p>
-
 
                 </div>
 
@@ -1684,9 +1840,9 @@
                 decision-support information for informational
                 purposes only.
 
-                BUY or WAIT signals do not guarantee future market
-                performance, profitable trades or protection from
-                financial losses.
+                BUY, WAIT or SELL signals do not guarantee future
+                market performance, profitable trades or protection
+                from financial losses.
 
                 Users remain responsible for their own trading
                 decisions.
@@ -1719,8 +1875,9 @@
 
             <p>
 
-                Open the CueFluence web application and explore
-                the technical-analysis dashboard for yourself.
+                Open the CueFluence web application and
+                explore the technical-analysis dashboard
+                for yourself.
 
             </p>
 
