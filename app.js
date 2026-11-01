@@ -17,7 +17,17 @@ var products = [
         price: "$9.99/month",
         image: "img/cuefluence.png",
         url: "https://cuefluence.swooklabs.com/"
-    }
+    },
+
+    {
+        name: "Zombie Game 2D",
+        category: "game",
+        description:
+            "The initial 2D proto build of Zombie Game. A simple zombie survival shooter. Survive as long as you can.",
+        price: "FREE",
+        image: "img/zombiegame2d",
+        url: "https://swooklabs.com/sz2/"
+    },
 ];
 
 var productGrid =
