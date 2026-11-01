@@ -15,8 +15,8 @@ var products = [
         description:
             "Analyze forex markets and get simple BUY or WAIT signals based on key technical indicators.",
         price: "$9.99/month",
-        image: "cuefluence.html",
-        url: "https://cuefluence.swooklabs.com/"
+        image: "img/cuefluence.png",
+        url: "cuefluence.html"
     },
 
     {
