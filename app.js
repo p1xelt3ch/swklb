@@ -48,27 +48,19 @@ function displayProducts(category)
         )
         {
             var card =
-                document.createElement("article");
+    document.createElement("a");
 
-            card.className = "product-card";
+card.className = "product-card";
 
-            // Make whole card clickable
-            card.setAttribute("role", "link");
-            card.setAttribute("tabindex", "0");
+card.href = product.url;
 
-            card.addEventListener("click", function()
-            {
-                window.location.href = product.url;
-            });
+card.setAttribute(
+    "aria-label",
+    "View " + product.name
+);
 
-            // Allow Enter key as well
-            card.addEventListener("keydown", function(event)
-            {
-                if (event.key === "Enter")
-                {
-                    window.location.href = product.url;
-                }
-            });
+card.style.textDecoration = "none";
+card.style.color = "inherit";
 
             card.innerHTML = `
                 <div class="product-image">
@@ -104,7 +96,7 @@ function displayProducts(category)
                     <div class="product-footer">
 
                         <span class="product-price">
-                            ${product.price}
+                            ${product.price || ""}
                         </span>
 
                         <span class="product-link">
