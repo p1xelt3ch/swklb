@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -20,7 +21,7 @@
 
     <meta
         name="description"
-        content="CueFluence is a forex technical analysis dashboard that combines EMA 20, 50 and 200, ADR, market sessions and indicator confluence into clear BUY or WAIT signals. Analyze forex markets without indicator overload."
+        content="CueFluence is a forex technical analysis dashboard that combines EMA 20, EMA 50, EMA 200, Average Daily Range and market-session context into simple BUY or WAIT decision-support signals."
     >
 
     <meta
@@ -45,7 +46,7 @@
 
     <meta
         property="og:description"
-        content="Combine multiple forex technical indicators into simple BUY or WAIT signals with CueFluence."
+        content="Combine multiple forex technical indicators into one clearer dashboard with CueFluence."
     >
 
     <meta
@@ -85,7 +86,7 @@
 
     <meta
         name="twitter:description"
-        content="Analyze forex markets using indicator confluence, EMA analysis, ADR and market-session context."
+        content="Simplify forex technical analysis using indicator confluence, EMA analysis, ADR and market-session context."
     >
 
     <meta
@@ -102,50 +103,45 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-
         "name": "CueFluence",
-
         "url": "https://swooklabs.com/cuefluence.html",
-
         "applicationCategory": "FinanceApplication",
-
         "operatingSystem": "Web Browser",
-
-        "description":
-            "CueFluence is a forex technical analysis and decision-support dashboard that combines multiple technical indicators including EMA 20, EMA 50, EMA 200, ADR and market-session context into simple BUY or WAIT signals.",
-
-        "image":
-            "https://swooklabs.com/img/cuefluence.png",
-
-        "creator":
-        {
+        "description": "CueFluence is a forex technical analysis and decision-support dashboard that combines EMA 20, EMA 50, EMA 200, Average Daily Range and market-session context into simplified BUY or WAIT signals.",
+        "image": "https://swooklabs.com/img/cuefluence.png",
+        "creator": {
             "@type": "Organization",
             "name": "Swook Labs",
             "url": "https://swooklabs.com/"
         },
-
-        "offers":
-        {
+        "publisher": {
+            "@type": "Organization",
+            "name": "Swook Labs",
+            "url": "https://swooklabs.com/"
+        },
+        "offers": {
             "@type": "Offer",
             "price": "9.99",
             "priceCurrency": "USD",
             "url": "https://cuefluence.swooklabs.com/"
         },
-
-        "featureList":
-        [
-            "Forex technical analysis",
+        "featureList": [
+            "Forex technical analysis dashboard",
             "EMA 20 analysis",
             "EMA 50 analysis",
             "EMA 200 analysis",
             "Average Daily Range analysis",
-            "Market session context",
-            "BUY and WAIT signals",
-            "Technical indicator confluence"
+            "Forex market-session context",
+            "Technical indicator confluence",
+            "BUY and WAIT decision-support signals"
         ]
     }
     </script>
 
+
+    <!-- ==================================================
+         MAIN SITE CSS
+    ================================================== -->
 
     <link
         rel="stylesheet"
@@ -153,47 +149,243 @@
     >
 
 
-    <!-- Small CueFluence-specific additions -->
+    <!-- ==================================================
+         CUEFLUENCE-SPECIFIC STYLES
+    ================================================== -->
 
     <style>
 
-        .cuefluence-note
+        .cuefluence-section
+        {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+
+        .cuefluence-section h2
+        {
+            margin-top: 0;
+        }
+
+
+        .cuefluence-section > p
         {
             max-width: 850px;
-            margin: 35px auto 0;
-            padding: 22px 25px;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            color: #aeb6c5;
-            line-height: 1.7;
+            line-height: 1.8;
+        }
+
+
+        .cuefluence-section-center
+        {
             text-align: center;
+        }
+
+
+        .cuefluence-section-center > p
+        {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        .cuefluence-grid
+        {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(240px, 1fr)
+                );
+
+            gap: 24px;
+
+            margin-top: 40px;
+        }
+
+
+        .cuefluence-card
+        {
+            padding: 28px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 14px;
+
+            background:
+                rgba(255, 255, 255, 0.025);
+        }
+
+
+        .cuefluence-card h3
+        {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+
+        .cuefluence-card p
+        {
+            margin: 0;
+
+            line-height: 1.7;
+
+            color: #aeb6c5;
+        }
+
+
+        .cuefluence-step-number
+        {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 38px;
+            height: 38px;
+
+            margin-bottom: 16px;
+
+            border-radius: 50%;
+
+            background: #4c7dff;
+
+            color: #ffffff;
+
+            font-weight: 700;
+        }
+
+
+        .cuefluence-highlight
+        {
+            max-width: 900px;
+
+            margin: 50px auto 0;
+
+            padding: 30px;
+
+            border:
+                1px solid
+                rgba(76, 125, 255, 0.35);
+
+            border-radius: 14px;
+
+            background:
+                rgba(76, 125, 255, 0.06);
+        }
+
+
+        .cuefluence-highlight h3
+        {
+            margin-top: 0;
+        }
+
+
+        .cuefluence-highlight p
+        {
+            margin-bottom: 0;
+
+            line-height: 1.7;
         }
 
 
         .cuefluence-faq
         {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 900px;
+
+            margin: 40px auto 0;
         }
 
 
         .cuefluence-faq-item
         {
-            margin-bottom: 22px;
-            padding-bottom: 22px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 24px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255, 255, 255, 0.08);
         }
 
 
         .cuefluence-faq-item h3
         {
-            margin-bottom: 8px;
+            margin:
+                0
+                0
+                10px;
         }
 
 
         .cuefluence-faq-item p
         {
             margin: 0;
+
+            line-height: 1.7;
+
+            color: #aeb6c5;
+        }
+
+
+        .cuefluence-disclaimer
+        {
+            max-width: 900px;
+
+            margin: 55px auto 0;
+
+            padding: 24px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 12px;
+
+            color: #8e98aa;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        .cuefluence-app-button
+        {
+            display: inline-block;
+
+            margin-top: 10px;
+        }
+
+
+        .cuefluence-price-card
+        {
+            max-width: 560px;
+
+            margin: 40px auto 0;
+        }
+
+
+        @media
+        (
+            max-width: 700px
+        )
+        {
+
+            .cuefluence-section
+            {
+                padding:
+                    60px
+                    20px;
+            }
+
+
+            .cuefluence-card
+            {
+                padding: 22px;
+            }
+
         }
 
     </style>
@@ -205,7 +397,7 @@
 
 
     <!-- ==================================================
-         NAVBAR
+         NAVIGATION
     ================================================== -->
 
     <header class="navbar">
@@ -270,7 +462,7 @@
 
 
                 <p class="eyebrow">
-                    SWOOK LABS FOREX ANALYSIS TOOL
+                    FOREX TECHNICAL ANALYSIS TOOL
                 </p>
 
 
@@ -280,26 +472,30 @@
 
 
                 <p class="game-tagline">
-                    Forex technical analysis without the indicator overload.
+
+                    Simplify forex technical analysis
+                    with indicator confluence.
+
                 </p>
 
 
                 <p class="game-intro">
 
-                    CueFluence combines multiple forex technical
-                    indicators into one clear dashboard to help you
-                    understand when market conditions favour buying
-                    and when waiting may make more sense.
+                    CueFluence combines multiple forex
+                    technical indicators into one dashboard
+                    to help you understand whether current
+                    market conditions favour buying or waiting.
 
                 </p>
 
 
                 <a
                     href="https://cuefluence.swooklabs.com/"
-                    class="btn btn-primary"
+                    class="btn btn-primary cuefluence-app-button"
                 >
                     Open CueFluence
                 </a>
+
 
             </div>
 
@@ -308,11 +504,11 @@
 
 
         <!-- ==================================================
-             ABOUT
+             WHAT IS CUEFLUENCE?
         ================================================== -->
 
         <section
-            class="game-about"
+            class="cuefluence-section"
             id="about"
         >
 
@@ -323,16 +519,18 @@
 
 
             <h2>
-                A simpler way to read forex technical indicators.
+                Forex technical analysis without the indicator overload.
             </h2>
 
 
             <p>
 
-                Forex traders often use several technical indicators
-                at the same time. The problem is that those indicators
-                can produce conflicting information, making it difficult
-                to understand what the market is actually doing.
+                Forex traders often look at several technical
+                indicators before making a decision.
+
+                The problem is that those indicators can sometimes
+                provide different or conflicting information,
+                making the overall market picture harder to read.
 
             </p>
 
@@ -340,20 +538,21 @@
             <p>
 
                 CueFluence is a forex technical analysis dashboard
-                designed to simplify that process. Instead of forcing
-                you to interpret several indicators separately,
-                CueFluence brings important technical information
-                together and evaluates the overall market setup.
+                designed to simplify that process.
+
+                Instead of forcing you to interpret every indicator
+                separately, CueFluence brings several pieces of
+                technical market information together in one place.
 
             </p>
 
 
             <p>
 
-                The goal is not to replace your own analysis or trading
-                strategy. CueFluence is designed as a decision-support
-                tool that helps make technical indicator confluence
-                easier to understand.
+                The goal is simple: make technical indicator
+                confluence easier to understand so you can spend
+                less time jumping between indicators and more time
+                evaluating the overall market setup.
 
             </p>
 
@@ -363,17 +562,17 @@
 
 
         <!-- ==================================================
-             FEATURES
+             CORE FEATURES
         ================================================== -->
 
         <section
-            class="game-about"
+            class="cuefluence-section cuefluence-section-center"
             id="features"
         >
 
 
             <p class="eyebrow">
-                FOREX ANALYSIS FEATURES
+                CORE FEATURES
             </p>
 
 
@@ -382,10 +581,18 @@
             </h2>
 
 
-            <div class="game-features">
+            <p>
+
+                CueFluence brings several commonly used forms of
+                forex technical analysis into one dashboard.
+
+            </p>
 
 
-                <div class="game-feature">
+            <div class="cuefluence-grid">
+
+
+                <article class="cuefluence-card">
 
                     <h3>
                         Indicator Confluence
@@ -393,17 +600,17 @@
 
                     <p>
 
-                        CueFluence evaluates several technical
-                        indicators together instead of relying
-                        on a single indicator.
+                        Evaluate several technical conditions
+                        together instead of relying on one
+                        indicator in isolation.
 
                     </p>
 
-                </div>
+                </article>
 
 
 
-                <div class="game-feature">
+                <article class="cuefluence-card">
 
                     <h3>
                         BUY or WAIT
@@ -411,17 +618,17 @@
 
                     <p>
 
-                        Technical conditions are simplified into
-                        clear BUY or WAIT signals designed to make
-                        market analysis easier to interpret.
+                        CueFluence summarizes current technical
+                        conditions into straightforward BUY or WAIT
+                        decision-support signals.
 
                     </p>
 
-                </div>
+                </article>
 
 
 
-                <div class="game-feature">
+                <article class="cuefluence-card">
 
                     <h3>
                         Market Context
@@ -429,13 +636,14 @@
 
                     <p>
 
-                        View technical conditions alongside market
-                        session information and daily trading-range
-                        context.
+                        View technical conditions alongside
+                        daily-range information and forex
+                        market-session context.
 
                     </p>
 
-                </div>
+                </article>
+
 
             </div>
 
@@ -448,11 +656,11 @@
              TECHNICAL INDICATORS
         ================================================== -->
 
-        <section class="game-about">
+        <section class="cuefluence-section">
 
 
             <p class="eyebrow">
-                TECHNICAL INDICATORS
+                TECHNICAL ANALYSIS
             </p>
 
 
@@ -463,70 +671,197 @@
 
             <p>
 
-                CueFluence combines several commonly used forex
-                technical-analysis tools to provide a broader view
-                of current market conditions.
+                CueFluence uses several technical-analysis
+                measurements to help build a broader view of
+                current forex market conditions.
 
             </p>
 
 
-            <div class="game-features">
+            <div class="cuefluence-grid">
 
 
-                <div class="game-feature">
+                <article class="cuefluence-card">
 
                     <h3>
-                        EMA 20 / 50 / 200
+                        EMA 20
                     </h3>
 
                     <p>
 
-                        Exponential Moving Averages help identify
-                        short, medium and longer-term market
-                        direction and trend structure.
+                        The 20-period Exponential Moving Average
+                        helps provide context around shorter-term
+                        market direction.
 
                     </p>
 
-                </div>
+                </article>
 
 
 
-                <div class="game-feature">
+                <article class="cuefluence-card">
 
                     <h3>
-                        ADR
+                        EMA 50
                     </h3>
 
                     <p>
 
-                        Average Daily Range provides context about
-                        how far a currency pair typically moves
-                        during a trading day.
+                        The 50-period Exponential Moving Average
+                        provides additional context for the
+                        medium-term market structure.
 
                     </p>
 
-                </div>
+                </article>
 
 
 
-                <div class="game-feature">
+                <article class="cuefluence-card">
 
                     <h3>
-                        Trading Sessions
+                        EMA 200
                     </h3>
 
                     <p>
 
-                        CueFluence considers Asia, London and
-                        New York market-session context when
-                        presenting market information.
+                        The 200-period Exponential Moving Average
+                        provides a broader view of longer-term
+                        market direction.
 
                     </p>
 
-                </div>
+                </article>
+
+
+
+                <article class="cuefluence-card">
+
+                    <h3>
+                        Average Daily Range
+                    </h3>
+
+                    <p>
+
+                        ADR provides context around how far a
+                        currency pair typically moves during a
+                        trading day.
+
+                    </p>
+
+                </article>
+
+
+
+                <article class="cuefluence-card">
+
+                    <h3>
+                        Market Sessions
+                    </h3>
+
+                    <p>
+
+                        View market information in the context
+                        of the Asia, London and New York
+                        forex trading sessions.
+
+                    </p>
+
+                </article>
+
+
+
+                <article class="cuefluence-card">
+
+                    <h3>
+                        Combined Analysis
+                    </h3>
+
+                    <p>
+
+                        CueFluence brings these different pieces
+                        of technical information together instead
+                        of making you interpret them separately.
+
+                    </p>
+
+                </article>
 
 
             </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             WHAT IS INDICATOR CONFLUENCE?
+        ================================================== -->
+
+        <section class="cuefluence-section">
+
+
+            <p class="eyebrow">
+                INDICATOR CONFLUENCE
+            </p>
+
+
+            <h2>
+                What does forex indicator confluence mean?
+            </h2>
+
+
+            <p>
+
+                Indicator confluence describes a situation where
+                several different forms of technical analysis point
+                toward a similar market interpretation.
+
+            </p>
+
+
+            <p>
+
+                Instead of making a decision because one indicator
+                produces a particular result, a trader may look for
+                several technical conditions that support the same
+                general view.
+
+            </p>
+
+
+            <p>
+
+                CueFluence is built around this idea.
+
+                It brings several technical measurements together
+                so that you can evaluate the broader setup from one
+                dashboard rather than checking each indicator
+                independently.
+
+            </p>
+
+
+            <div class="cuefluence-highlight">
+
+                <h3>
+                    Why use multiple indicators?
+                </h3>
+
+                <p>
+
+                    No single technical indicator can describe
+                    everything happening in a market.
+
+                    Looking at multiple forms of technical
+                    information can provide additional context
+                    when evaluating a setup.
+
+                </p>
+
+            </div>
+
 
         </section>
 
@@ -537,74 +872,170 @@
         ================================================== -->
 
         <section
-            class="game-about"
+            class="cuefluence-section cuefluence-section-center"
             id="how-it-works"
         >
 
 
             <p class="eyebrow">
-                HOW CUEFLUENCE WORKS
+                HOW IT WORKS
             </p>
 
 
             <h2>
-                From technical data to a simpler decision.
+                From market data to a simpler decision.
             </h2>
 
 
-            <div class="game-features">
+            <div class="cuefluence-grid">
 
 
-                <div class="game-feature">
+                <article class="cuefluence-card">
+
+                    <div class="cuefluence-step-number">
+                        1
+                    </div>
 
                     <h3>
-                        1. Analyze
+                        Analyze
                     </h3>
 
                     <p>
 
-                        CueFluence reads forex market data and
-                        calculates multiple technical indicators.
+                        CueFluence processes forex market information
+                        and calculates multiple technical indicators.
 
                     </p>
 
-                </div>
+                </article>
 
 
 
-                <div class="game-feature">
+                <article class="cuefluence-card">
+
+                    <div class="cuefluence-step-number">
+                        2
+                    </div>
 
                     <h3>
-                        2. Compare
+                        Compare
                     </h3>
 
                     <p>
 
-                        The indicators are evaluated together to
-                        identify whether multiple technical conditions
-                        are pointing in the same direction.
+                        The indicators are viewed together to help
+                        determine whether multiple technical
+                        conditions are aligning.
 
                     </p>
 
-                </div>
+                </article>
 
 
 
-                <div class="game-feature">
+                <article class="cuefluence-card">
+
+                    <div class="cuefluence-step-number">
+                        3
+                    </div>
 
                     <h3>
-                        3. Decide
+                        Interpret
                     </h3>
 
                     <p>
 
                         CueFluence presents the result in a simplified
-                        format so you can use it alongside your own
+                        format that you can use alongside your own
                         analysis and trading strategy.
 
                     </p>
 
-                </div>
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             BUY / WAIT EXPLANATION
+        ================================================== -->
+
+        <section class="cuefluence-section">
+
+
+            <p class="eyebrow">
+                BUY / WAIT SIGNALS
+            </p>
+
+
+            <h2>
+                What do the CueFluence signals mean?
+            </h2>
+
+
+            <div class="cuefluence-grid">
+
+
+                <article class="cuefluence-card">
+
+                    <h3>
+                        BUY
+                    </h3>
+
+                    <p>
+
+                        A BUY signal means the technical conditions
+                        currently analyzed by CueFluence are showing
+                        stronger alignment toward a potential buying
+                        setup.
+
+                    </p>
+
+                </article>
+
+
+
+                <article class="cuefluence-card">
+
+                    <h3>
+                        WAIT
+                    </h3>
+
+                    <p>
+
+                        A WAIT signal means the current technical
+                        setup does not show enough alignment for
+                        CueFluence to present a BUY condition.
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+            <div class="cuefluence-highlight">
+
+                <h3>
+                    Signals are decision support, not guarantees.
+                </h3>
+
+                <p>
+
+                    CueFluence signals summarize technical
+                    conditions.
+
+                    They should not be interpreted as guaranteed
+                    predictions of future price movements or
+                    guaranteed profitable trades.
+
+                </p>
 
             </div>
 
@@ -617,7 +1048,7 @@
              NOT A BROKER
         ================================================== -->
 
-        <section class="game-about">
+        <section class="cuefluence-section">
 
 
             <p class="eyebrow">
@@ -632,26 +1063,29 @@
 
             <p>
 
-                CueFluence is not a forex broker or trading platform.
+                CueFluence is not a forex broker and does not
+                execute trades on your behalf.
 
             </p>
 
 
             <p>
 
-                The dashboard analyzes technical market information
-                and provides decision-support signals. If you decide
-                to trade, the trade is placed separately through your
-                own broker or trading platform.
+                The application is designed to provide technical
+                market analysis and decision-support information.
+
+                If you decide to enter a trade, that trade is placed
+                separately through your own broker or trading
+                platform.
 
             </p>
 
 
             <p>
 
-                This separation allows CueFluence to focus on one
-                job: helping make forex technical analysis easier
-                to understand.
+                This allows CueFluence to stay focused on its main
+                purpose: helping make technical market information
+                easier to read.
 
             </p>
 
@@ -661,7 +1095,86 @@
 
 
         <!-- ==================================================
-             SUBSCRIPTION
+             WHO IS IT FOR?
+        ================================================== -->
+
+        <section class="cuefluence-section">
+
+
+            <p class="eyebrow">
+                WHO IS CUEFLUENCE FOR?
+            </p>
+
+
+            <h2>
+                Built for traders who want a simpler technical-analysis workflow.
+            </h2>
+
+
+            <div class="cuefluence-grid">
+
+
+                <article class="cuefluence-card">
+
+                    <h3>
+                        Multiple Indicator Users
+                    </h3>
+
+                    <p>
+
+                        Useful if your forex analysis already involves
+                        checking several technical indicators before
+                        making a decision.
+
+                    </p>
+
+                </article>
+
+
+
+                <article class="cuefluence-card">
+
+                    <h3>
+                        Newer Technical Traders
+                    </h3>
+
+                    <p>
+
+                        Helps present multiple pieces of technical
+                        information in a more understandable format.
+
+                    </p>
+
+                </article>
+
+
+
+                <article class="cuefluence-card">
+
+                    <h3>
+                        Faster Analysis
+                    </h3>
+
+                    <p>
+
+                        Designed for users who want to reduce the
+                        amount of time spent switching between
+                        separate indicators and charts.
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PRICING / CTA
         ================================================== -->
 
         <section
@@ -672,19 +1185,21 @@
 
             <div class="game-version-heading">
 
+
                 <p class="eyebrow">
                     ACCESS CUEFLUENCE
                 </p>
 
+
                 <h2>
-                    Simplify your market analysis.
+                    Simplify your forex analysis.
                 </h2>
+
 
             </div>
 
 
-
-            <div class="version-grid">
+            <div class="cuefluence-price-card">
 
 
                 <div
@@ -709,8 +1224,9 @@
 
                     <p>
 
-                        Access the full CueFluence forex technical
-                        analysis dashboard from your web browser.
+                        Access the CueFluence forex technical
+                        analysis dashboard directly from your
+                        web browser.
 
                     </p>
 
@@ -726,15 +1242,15 @@
                         </li>
 
                         <li>
-                            ADR market-range analysis
+                            Average Daily Range context
                         </li>
 
                         <li>
-                            Market session context
+                            Market-session information
                         </li>
 
                         <li>
-                            Indicator confluence analysis
+                            Indicator confluence
                         </li>
 
                         <li>
@@ -754,6 +1270,7 @@
 
                 </div>
 
+
             </div>
 
 
@@ -766,19 +1283,25 @@
         ================================================== -->
 
         <section
-            class="game-about"
+            class="cuefluence-section"
             id="faq"
         >
 
 
-            <p class="eyebrow">
-                FREQUENTLY ASKED QUESTIONS
-            </p>
+            <div class="cuefluence-section-center">
 
 
-            <h2>
-                CueFluence FAQ
-            </h2>
+                <p class="eyebrow">
+                    FREQUENTLY ASKED QUESTIONS
+                </p>
+
+
+                <h2>
+                    CueFluence FAQ
+                </h2>
+
+
+            </div>
 
 
             <div class="cuefluence-faq">
@@ -786,18 +1309,21 @@
 
                 <div class="cuefluence-faq-item">
 
+
                     <h3>
                         What is CueFluence?
                     </h3>
 
+
                     <p>
 
                         CueFluence is a web-based forex technical
-                        analysis tool that combines multiple market
-                        indicators into a simplified decision-support
-                        dashboard.
+                        analysis dashboard that brings multiple
+                        technical indicators together into a simplified
+                        decision-support interface.
 
                     </p>
+
 
                 </div>
 
@@ -805,74 +1331,157 @@
 
                 <div class="cuefluence-faq-item">
 
+
                     <h3>
-                        What forex indicators does CueFluence use?
+                        What indicators does CueFluence use?
                     </h3>
+
 
                     <p>
 
-                        CueFluence includes analysis based on
-                        EMA 20, EMA 50, EMA 200, Average Daily
-                        Range and market-session context.
+                        CueFluence includes EMA 20, EMA 50,
+                        EMA 200, Average Daily Range and
+                        forex market-session context.
 
                     </p>
+
 
                 </div>
 
 
 
                 <div class="cuefluence-faq-item">
+
+
+                    <h3>
+                        What is forex indicator confluence?
+                    </h3>
+
+
+                    <p>
+
+                        Indicator confluence occurs when several
+                        forms of technical analysis provide similar
+                        or supporting information about the current
+                        market setup.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="cuefluence-faq-item">
+
 
                     <h3>
                         Does CueFluence automatically trade forex?
                     </h3>
 
+
                     <p>
 
-                        No. CueFluence does not execute trades and
-                        is not a broker. Trades are placed separately
-                        through your own broker or trading platform.
+                        No.
+
+                        CueFluence does not place or execute trades.
+
+                        Any trades you choose to make are placed
+                        separately through your own broker or
+                        trading platform.
 
                     </p>
+
 
                 </div>
 
 
 
                 <div class="cuefluence-faq-item">
+
 
                     <h3>
-                        What do BUY and WAIT mean?
+                        What does a BUY signal mean?
                     </h3>
+
 
                     <p>
 
-                        BUY and WAIT summarize the technical
-                        conditions CueFluence is currently detecting.
-                        They are designed to simplify indicator
-                        interpretation and should be considered
-                        alongside your own analysis.
+                        A BUY signal means the technical conditions
+                        analyzed by CueFluence currently show stronger
+                        alignment toward a potential buying setup.
 
                     </p>
+
 
                 </div>
 
 
 
                 <div class="cuefluence-faq-item">
+
+
+                    <h3>
+                        What does WAIT mean?
+                    </h3>
+
+
+                    <p>
+
+                        WAIT means the technical conditions currently
+                        analyzed by CueFluence do not show enough
+                        alignment for a BUY condition.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="cuefluence-faq-item">
+
 
                     <h3>
                         Is CueFluence financial advice?
                     </h3>
 
+
                     <p>
 
-                        No. CueFluence provides technical market
-                        analysis for informational and decision-support
-                        purposes. It does not provide personalized
-                        financial advice or guarantee trading results.
+                        No.
+
+                        CueFluence provides technical market analysis
+                        and decision-support information.
+
+                        It does not provide personalized financial
+                        advice and does not guarantee trading results.
 
                     </p>
+
+
+                </div>
+
+
+
+                <div class="cuefluence-faq-item">
+
+
+                    <h3>
+                        Do I need to download CueFluence?
+                    </h3>
+
+
+                    <p>
+
+                        No.
+
+                        CueFluence is a web application and can be
+                        accessed directly through a supported
+                        web browser.
+
+                    </p>
+
 
                 </div>
 
@@ -880,17 +1489,65 @@
             </div>
 
 
-            <div class="cuefluence-note">
+            <div class="cuefluence-disclaimer">
 
-                <strong>Important:</strong>
+                <strong>
+                    Risk Disclaimer:
+                </strong>
 
-                Trading forex involves financial risk. CueFluence
-                provides technical analysis and market information
-                for informational purposes only. Signals do not
-                guarantee future market performance, profit or
-                successful trades.
+                Forex trading involves financial risk.
+
+                CueFluence provides technical analysis and
+                decision-support information for informational
+                purposes only.
+
+                BUY or WAIT signals do not guarantee future market
+                performance, profitable trades or protection from
+                financial losses.
+
+                Users remain responsible for their own trading
+                decisions.
 
             </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FINAL CTA
+        ================================================== -->
+
+        <section
+            class="cuefluence-section cuefluence-section-center"
+        >
+
+
+            <p class="eyebrow">
+                READY TO EXPLORE?
+            </p>
+
+
+            <h2>
+                See CueFluence in action.
+            </h2>
+
+
+            <p>
+
+                Open the CueFluence web application and explore
+                the technical-analysis dashboard for yourself.
+
+            </p>
+
+
+            <a
+                href="https://cuefluence.swooklabs.com/"
+                class="btn btn-primary cuefluence-app-button"
+            >
+                Open CueFluence
+            </a>
 
 
         </section>
@@ -906,13 +1563,16 @@
 
     <footer>
 
+
         <div class="footer-logo">
             SWOOK LABS
         </div>
 
+
         <p>
             © 2026 Swook Labs
         </p>
+
 
     </footer>
 
