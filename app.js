@@ -25,7 +25,7 @@ var products = [
         description:
             "The initial 2D proto build of Zombie Game. A simple zombie survival shooter. Survive as long as you can.",
         price: "FREE",
-        image: "img/zombiegame2d",
+        image: "img/zombiegame2d.png",
         url: "https://swooklabs.com/sz2/"
     },
 ];
