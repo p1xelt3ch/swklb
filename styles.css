@@ -873,3 +873,18 @@ footer {
 
     white-space: nowrap;
 }
+
+@media (max-width: 500px)
+{
+    .version-product-header
+    {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .version-product-header .version-price
+    {
+        font-size: 36px;
+    }
+}
