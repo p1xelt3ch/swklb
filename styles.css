@@ -802,3 +802,28 @@ footer {
     width: 100%;
     max-width: 520px;
 }
+
+
+.windows-title
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.windows-logo
+{
+    display: grid;
+    grid-template-columns: repeat(2, 8px);
+    grid-template-rows: repeat(2, 8px);
+    gap: 2px;
+}
+
+.windows-logo span
+{
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+}
