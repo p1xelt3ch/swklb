@@ -790,3 +790,15 @@ footer {
     }
 
 }
+
+.version-grid
+{
+    display: flex;
+    justify-content: center;
+}
+
+.version-card
+{
+    width: 100%;
+    max-width: 520px;
+}
